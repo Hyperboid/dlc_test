@@ -40,6 +40,7 @@ function spell:onCast(user, target)
 			Assets.playSound("dtrans_flip", 2)
             self.slashes_count = self.slashes_count + 1
 		end
+        self.action_command_threshold = math.max(1/15, self.action_command_threshold * 0.95)
         strikedmg = math.max(user.chara:getStat("attack"), strikedmg - 2)
 		target:hurt(math.floor(strikedmg), user)
 	end
