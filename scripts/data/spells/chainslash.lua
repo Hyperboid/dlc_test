@@ -34,13 +34,13 @@ function spell:onCast(user, target)
 	local spellobj = XSlashSpell(user,target)
 	Game.battle:addChild(spellobj):setLayer(BATTLE_LAYERS["above_battlers"])
 
+    local strikedmg = damage
 	spellobj.damage_callback = function(self, hit_action_command)
-		local strikedmg = damage / 3
 		if hit_action_command then
 			Assets.playSound("dtrans_flip", 2)
             self.slashes_count = self.slashes_count + 1
-			strikedmg = strikedmg * 2
 		end
+        strikedmg = math.max(user.chara:getStat("attack"), strikedmg - 2)
 		target:hurt(math.floor(strikedmg), user)
 	end
 end
