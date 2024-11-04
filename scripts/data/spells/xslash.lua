@@ -34,22 +34,14 @@ function spell:onCast(user, target)
 	local spellobj = XSlashSpell(user,target)
 	Game.battle:addChild(spellobj):setLayer(BATTLE_LAYERS["above_battlers"])
 
-	local function dealDamage()
+	spellobj.damage_callback = function(self, hit_action_command)
 		local strikedmg = damage
-		if Input.pressed("confirm") then
-			Assets.playSound("backattack")
+		if hit_action_command then
+			Assets.playSound("dtrans_flip", 2)
 			strikedmg = strikedmg * 2
 		end
 		target:hurt(strikedmg, user)
 	end
-	Game.battle.timer:after(0.1/2, function()
-		dealDamage()
-		spellobj:generateSlash(1)
-		Game.battle.timer:after(1/2, function()
-			spellobj:generateSlash(-1)
-			dealDamage()
-		end)
-	end)
 end
 
 return spell

@@ -6,6 +6,32 @@ function XSlashSpell:init(user,target)
     super.init(self)
     self.user = user
     self.target = target
+    ---@type fun(self: XSlashSpell, hit_action_command: boolean)
+    self.damage_callback = function () end
+    self.clock = -0.05
+    self.antispam = 0
+    self.action_command_timer = math.huge
+    self.slashes_count = 2
+end
+
+function XSlashSpell:update()
+    super.update(self)
+    self.clock = self.clock + DT
+    self.action_command_timer = self.action_command_timer + DT
+    if Input.pressed("confirm") then
+        self.antispam = self.antispam + 1
+        self.action_command_timer = 0
+    end
+    if self.clock > 0 and self.slashes_count > 0 then
+        self:generateSlash((self.slashes_count % 2 == 0) and 1 or -1)
+        self.slashes_count = self.slashes_count - 1
+        local hit_action_command = self.action_command_timer < 0.2 and self.antispam <= 2
+        self.antispam = 0
+        self:damage_callback(hit_action_command)
+        self.clock = self.clock - .5
+    elseif self.clock > 3 then
+        self:remove()
+    end
 end
 
 function XSlashSpell:generateSlash(scale_x)
