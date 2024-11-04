@@ -12,6 +12,7 @@ function XSlashSpell:init(user,target)
     self.antispam = 0
     self.action_command_timer = math.huge
     self.slashes_count = 2
+    self.slash_flipped = false
 end
 
 function XSlashSpell:update()
@@ -23,7 +24,8 @@ function XSlashSpell:update()
         self.action_command_timer = 0
     end
     if self.clock > 0 and self.slashes_count > 0 then
-        self:generateSlash((self.slashes_count % 2 == 0) and 1 or -1)
+        self:generateSlash((self.slash_flipped) and -1 or 1)
+        self.slash_flipped = not self.slash_flipped
         self.slashes_count = self.slashes_count - 1
         local hit_action_command = self.action_command_timer < 0.2 and self.antispam <= 2
         self.antispam = 0
