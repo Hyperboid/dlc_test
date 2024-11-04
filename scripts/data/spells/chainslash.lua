@@ -42,8 +42,11 @@ function spell:onCast(user, target)
 		end
         self.action_command_threshold = math.max(1/15, self.action_command_threshold * 0.95)
         strikedmg = math.max(user.chara:getStat("attack"), strikedmg - 2)
-		target:hurt(math.floor(strikedmg), user)
+        if self.target.parent then
+            target:hurt(math.floor(strikedmg), user)
+        end
 	end
+    return false
 end
 
 return spell

@@ -32,8 +32,9 @@ function XSlashSpell:update()
         self.antispam = 0
         self.clock = self.clock - .5
         self:damage_callback(hit_action_command)
-    elseif self.clock > 3 then
+    elseif self.clock > 1 then
         self:remove()
+        Game.battle:finishAction()
     end
 end
 

@@ -42,6 +42,7 @@ function spell:onCast(user, target)
 		end
 		target:hurt(strikedmg, user)
 	end
+    return false
 end
 
 return spell
