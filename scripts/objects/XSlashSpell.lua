@@ -29,8 +29,8 @@ function XSlashSpell:update()
         self.slashes_count = self.slashes_count - 1
         local hit_action_command = self.action_command_timer < 0.2 and self.antispam <= 2
         self.antispam = 0
-        self:damage_callback(hit_action_command)
         self.clock = self.clock - .5
+        self:damage_callback(hit_action_command)
     elseif self.clock > 3 then
         self:remove()
     end
