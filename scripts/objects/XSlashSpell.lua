@@ -11,6 +11,7 @@ function XSlashSpell:init(user,target)
     self.clock = -0.05
     self.antispam = 0
     self.action_command_timer = math.huge
+    self.action_command_threshold = 0.2
     self.slashes_count = 2
     self.slash_flipped = false
 end
@@ -27,7 +28,7 @@ function XSlashSpell:update()
         self:generateSlash((self.slash_flipped) and -1 or 1)
         self.slash_flipped = not self.slash_flipped
         self.slashes_count = self.slashes_count - 1
-        local hit_action_command = self.action_command_timer < 0.2 and self.antispam <= 2
+        local hit_action_command = self.action_command_timer < self.action_command_threshold and self.antispam <= 2
         self.antispam = 0
         self.clock = self.clock - .5
         self:damage_callback(hit_action_command)
