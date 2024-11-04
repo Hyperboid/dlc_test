@@ -76,6 +76,18 @@
         "worldMap": {
             "x": 100,
             "y": 200
+        },
+        "bosses": {
+            "bigdummy": {
+                "name": "Big Dummy",
+                "encounter": "bigdummy",
+                "spritePath": ["assets/sprites/enemies/bigdummy/idle", 0.2, true]
+            },
+            "dummy": {
+                "name": "normal dummy lol",
+                "encounter": "dummy",
+                "spritePath": "assets/sprites/enemies/dummy/idle"
+            }
         }
     }
 }
