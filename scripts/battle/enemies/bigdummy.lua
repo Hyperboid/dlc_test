@@ -57,6 +57,7 @@ function Dummy:init()
     self:registerAct("Smile")
     if #Game.party == 1 and Game.party[1].id == "kris" then
         self:registerAct("X-Slash", "Physical\nDamage", {}, 25)
+        self:registerAct("Chain Slash", "Not Power\nBounce", {}, 60)
     end
     -- Register party act with Ralsei called "Tell Story"
     -- (second argument is description, usually empty)
@@ -102,6 +103,18 @@ function Dummy:onAct(battler, name)
         local user_index = Game.battle:getPartyIndex(user)
         local user_battler = Game.battle:getPartyBattler(user)
         local spell = Registry.createSpell("xslash")
+        local target = self
+        local menu_item = {
+            data = spell,
+            tp = 0,
+        }
+        Game.battle:pushAction("SPELL", target, menu_item, user_index)
+        Game.battle:markAsFinished(nil, {user})
+    elseif name == "Chain Slash" then
+        local user = "kris"
+        local user_index = Game.battle:getPartyIndex(user)
+        local user_battler = Game.battle:getPartyBattler(user)
+        local spell = Registry.createSpell("chainslash")
         local target = self
         local menu_item = {
             data = spell,
