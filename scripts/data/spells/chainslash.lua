@@ -32,16 +32,23 @@ function spell:onCast(user, target)
 
 	---@type XSlashSpell
 	local spellobj = XSlashSpell(user,target)
+    spellobj.slashes_count = 1
+    spellobj.clock = -0.5
+    local chain = 0
 	Game.battle:addChild(spellobj):setLayer(BATTLE_LAYERS["above_battlers"])
 
-    local strikedmg = damage
+    Assets.playSound("back_attack")
 	spellobj.damage_callback = function(self, hit_action_command)
+        damage = math.max(user.chara:getStat("attack"), damage - 2)
+        local strikedmg = damage
 		if hit_action_command then
-			Assets.playSound("dtrans_flip", 2)
+			Assets.playSound("bell", 1, Utils.clampMap(chain, 0, 10, 0.5, 0.8))
+            chain = chain + 1
             self.slashes_count = self.slashes_count + 1
+        else
+            strikedmg = 0
 		end
         self.action_command_threshold = math.max(1/15, self.action_command_threshold * 0.95)
-        strikedmg = math.max(user.chara:getStat("attack"), strikedmg - 2)
         if self.target.parent then
             target:hurt(math.floor(strikedmg), user)
         end
