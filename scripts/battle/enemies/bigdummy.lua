@@ -136,7 +136,6 @@ function Dummy:onAct(battler, name)
             Game.battle:startActCutscene("bigdummy", "susie_punch")
             return
         elseif battler.chara.id == "dess" then
-            local newmus = "berdly_battle_heartbeat_true"
             Game.battle.encounter:addFlag("dess_angered_dummy", 1)
             Game.battle.music.pitch = 1 + (.1 * (Game.battle.encounter:getFlag("dess_angered_dummy")))
             self.defense = self.defense - 2
