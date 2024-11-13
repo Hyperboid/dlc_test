@@ -71,7 +71,7 @@
             "NORMINFO": {
                 "result": "main_hub"
             },
-            "THIS_MOD": true
+            "TESTZONE": true
         },
         "worldMap": {
             "x": 100,
