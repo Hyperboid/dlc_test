@@ -4,7 +4,7 @@
     // Displays on the main menu.
     "name": "Test DLC",
     // Displays underneath the name. Optional.
-    "subtitle": "Also not an example but I guess it would be fine",
+    "subtitle": "A small mod for testing various features of our DLC handling. Accessible by the TESTZONE bin code.\nI guess you can use it as an example.",
 
     // The version of your mod.
     "version": "v1.0.0",
