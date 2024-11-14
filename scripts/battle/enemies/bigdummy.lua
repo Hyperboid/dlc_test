@@ -65,9 +65,8 @@ function Dummy:init()
 end
 
 function Dummy:onCheck(battler)
-    self.checkovsgun --[[]] = {
-        string.format("AT %s DF %s\n* A rotten heart and button eye.\n* The pain itself is reason why.", self.attack, self.defense),
-        "No, it's not  .  .   s   , I just thought it was a cool rhyme."
+    self.check --[[]] = {
+        string.format("AT %s DF %s\n* A rotten heart and button eye.\n* Kinda like a fluffy guy?", self.attack, self.defense)
     }
 end
 
