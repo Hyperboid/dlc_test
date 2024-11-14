@@ -81,12 +81,12 @@
             "bigdummy": {
                 "name": "Big Dummy",
                 "encounter": "bigdummy",
-                "spritePath": ["assets/sprites/enemies/bigdummy/idle", 0.2, true]
+                "preview": ["assets/sprites/enemies/bigdummy/idle_1.png", 40, -20]
             },
             "dummy": {
                 "name": "normal dummy lol",
                 "encounter": "dummy",
-                "spritePath": "assets/sprites/enemies/dummy/idle"
+                "preview": ["assets/sprites/enemies/dummy/idle.png", 67, 32]
             }
         }
     }
