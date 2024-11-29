@@ -105,7 +105,7 @@ return {
         local txt = Text("SET ACTOR")
         txt:setParallax(0,0)
         Game.world:spawnObject(txt)
-        local actor_id = Game:getFlag("testactor") or (cutscene:getUserText(10)):lower()
+        local actor_id = Game:getFlag("testactor") or (cutscene:getUserText(16)):lower()
         txt:remove()
         local ok,actor = pcall(Registry.createActor, actor_id)
         if not ok then
@@ -114,7 +114,7 @@ return {
         end
         event:setActor(actor)
         Game.world:addChild(txt):setText("SET FACE")
-        local face = Game:getFlag("testface") or (cutscene:getUserText(10)):lower()
+        local face = Game:getFlag("testface") or (cutscene:getUserText(16)):lower()
         txt:remove()
         if face == "" then face = nil end
         cutscene:text(
