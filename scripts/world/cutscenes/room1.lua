@@ -102,6 +102,7 @@ return {
     ---@param cutscene WorldCutscene
     ---@param event NPC
     test = function (cutscene, event)
+        event:facePlayer()
         local txt = Text("SET ACTOR")
         txt:setParallax(0,0)
         Game.world:spawnObject(txt)
@@ -112,7 +113,9 @@ return {
             cutscene:text("* who tf is "..actor_id.."???")
             return
         end
-        event:setActor(actor)
+        if actor_id ~=event.actor.id then
+            event:setActor(actor)
+        end
         Game.world:addChild(txt):setText("SET FACE")
         local face = Game:getFlag("testface") or (cutscene:getUserText(16)):lower()
         txt:remove()
