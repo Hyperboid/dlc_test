@@ -97,5 +97,31 @@ return {
             cutscene:text("* These [color:yellow]stairs[color:reset] are [color:yellow]Pissing[color:reset] me\noff...")
             cutscene:text("* I'm the original   [color:yellow]Starwalker[color:reset]")
         end
-    end
+    end,
+
+    ---@param cutscene WorldCutscene
+    ---@param event NPC
+    test = function (cutscene, event)
+        local txt = Text("SET ACTOR")
+        txt:setParallax(0,0)
+        Game.world:spawnObject(txt)
+        local actor_id = Game:getFlag("testactor") or (cutscene:getUserText(10)):lower()
+        txt:remove()
+        local ok,actor = pcall(Registry.createActor, actor_id)
+        if not ok then
+            cutscene:text("* who tf is "..actor_id.."???")
+            return
+        end
+        event:setActor(actor)
+        Game.world:addChild(txt):setText("SET FACE")
+        local face = Game:getFlag("testface") or (cutscene:getUserText(10)):lower()
+        txt:remove()
+        if face == "" then face = nil end
+        cutscene:text(
+            Game:getFlag("testtext", "* This is some text for testing actors.[wait:10]\n* Is it working?"),
+            face,
+            event
+        )
+        return false
+    end,
 }
