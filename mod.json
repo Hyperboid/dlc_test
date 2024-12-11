@@ -20,34 +20,6 @@
     // May be overwritten by the Game:swapIntoMod invocation
     "map": "room1",
 
-    // The party. The first character is the player.
-    "party": ["kris", "susie", "ralsei"],
-
-    // The inventory. Contains three darkburgers, a cell phone and a shadow crystal by default.
-    "inventory": {
-        "items": ["glowshard", "darkburger", "darkburger", "darkburger"],
-        "key_items": ["cell_phone", "shadowcrystal"]
-    },
-
-    // Equipment for your party. Not specifying equipment defaults to the following.
-    "equipment": {
-        "kris": {
-            "weapon": "wood_blade",
-            "armor": ["amber_card", "amber_card"]
-        },
-        "susie": {
-            "weapon": "mane_ax",
-            "armor": ["amber_card", "amber_card"]
-        },
-        "ralsei": {
-            "weapon": "red_scarf",
-            "armor": ["amber_card", "amber_card"]
-        }
-    },
-
-    // Should never be true, but just in case. Restarts the entire engine when leaving the mod.
-    // If you need this, you're most likely doing something wrong.
-    "hardReset": false,
 
     // Whether the mod is hidden from the mod selection.
     "hidden": false,
