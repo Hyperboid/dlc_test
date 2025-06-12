@@ -1,7 +1,7 @@
 return {
   version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.11.0",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 14,
+  nextobjectid = 16,
   properties = {
     ["name"] = "Test Map - Room 2"
   },
@@ -287,6 +287,32 @@ return {
             ["actor"] = "bigdummy",
             ["encounter"] = "bigdummy"
           }
+        },
+        {
+          id = 14,
+          name = "climbarea",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 120,
+          width = 120,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 15,
+          name = "climbentry",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 280,
+          width = 120,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

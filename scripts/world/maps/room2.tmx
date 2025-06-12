@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="14">
+<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="16">
  <editorsettings>
   <export target="room2.lua" format="lua"/>
  </editorsettings>
@@ -83,5 +83,7 @@ you.</property>
     <property name="encounter" value="bigdummy"/>
    </properties>
   </object>
+  <object id="14" name="climbarea" x="40" y="120" width="120" height="160"/>
+  <object id="15" name="climbentry" x="40" y="280" width="120" height="40"/>
  </objectgroup>
 </map>
